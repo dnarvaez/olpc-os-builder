@@ -5,6 +5,7 @@ all: bin
 
 bin:
 	$(MAKE) -C bin
+.PHONY: bin
 
 install: all
 	install -D -m 0755 osbuilder.py $(DESTDIR)/usr/sbin/olpc-os-builder
