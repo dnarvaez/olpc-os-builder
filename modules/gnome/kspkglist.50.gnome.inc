@@ -7,6 +7,9 @@ gnome-terminal
 metacity
 nautilus
 
+# temporary, until olpc-utils is working
+gdm
+
 # allow switching from Sugar
 olpc-switch-desktop
 
@@ -35,14 +38,14 @@ gimp
 
 # audio & video
 audacity
-totem
-totem-gstreamer
-totem-mozplugin
+# totem
+# totem-gstreamer
+# totem-mozplugin
 
 # more desktop stuff
 file-roller
 gedit
-gnash-plugin
+# gnash-plugin
 NetworkManager-gnome
 xdg-user-dirs-gtk
 

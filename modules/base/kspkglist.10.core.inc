@@ -2,29 +2,28 @@
 @base
 @core
 chkconfig
-kernel.i586
 tar
 wget
 diffutils
-rfkill
+# rfkill
 
 # basic debugging
 strace
 
 # OLPC technologies and customization packages
-olpc-utils
-olpc-netutils
-olpc-bootanim
+#olpc-utils
+#olpc-netutils
+#olpc-bootanim
 olpc-update
 # FIXME: revive PolicyKit-olpc for F14
 #PolicyKit-olpc
-ds-backup-client
-olpc-powerd
-olpc-powerd-dbus
-bootfw
+#ds-backup-client
+#olpc-powerd
+#olpc-powerd-dbus
+# bootfw
 
 # graphical base environment
-olpc-kbdshim
+#olpc-kbdshim
 desktop-backgrounds-basic
 openssh-askpass
 xorg-x11-server-Xorg
@@ -137,8 +136,8 @@ generic-logos
 isomd5sum
 
 # GSM/CDMA USB modem support, #7172
-usb_modeswitch
-usb_modeswitch-data
+#usb_modeswitch
+#usb_modeswitch-data
 
 # provides lokkit, needed for disabling SELinux
 system-config-firewall-base

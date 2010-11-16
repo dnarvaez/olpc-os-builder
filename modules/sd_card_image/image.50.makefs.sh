@@ -54,10 +54,10 @@ EOF
 	losetup -o $(((8192 + 131072) * $BLOCK_SIZE)) --sizelimit $(($img_sectors * $BLOCK_SIZE)) /dev/loop7 $img
 
 	echo "Create filesystems..."
-	mke2fs -O dir_index,^resize_inode -L Boot -F /dev/loop6
+	mkfs.ext3 -O dir_index,^resize_inode -L Boot -F /dev/loop6
 	mount /dev/loop6 $BOOT
 
-	mkfs.ext4 -O dir_index,^huge_file -E resize=8G -m1 -L OLPCRoot /dev/loop7
+	mkfs.ext3 -O dir_index,^huge_file -E resize=8G -m1 -L OLPCRoot /dev/loop7
 	tune2fs -o journal_data_ordered /dev/loop7
 	mount /dev/loop7 $ROOT
 

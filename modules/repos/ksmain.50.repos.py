@@ -21,6 +21,8 @@ excludepkgs = set()
 addexcludes = ooblib.read_config('repos', 'add_excludes_to')
 fedora = ooblib.read_config('repos', 'fedora')
 fver = ooblib.read_config('global', 'fedora_release').strip()
+arm = ooblib.read_config('repos', 'fedora_arm')
+olpc_arm = ooblib.read_config('repos', 'olpc_arm')
 
 # clean up addexcludes list
 if addexcludes is not None:
@@ -65,6 +67,11 @@ if fedora is not None:
             repos["fedora-updates"] = ("mirrorlist", "http://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f%s&arch=i386" % fver)
         elif repo == "fedora-updates-testing":
             repos["fedora-updates-testing"] = ("mirrorlist", "http://mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f%s&arch=i386" % fver)
+
+if arm is not None:
+    repos["arm"] = ("mirrorlist", "http://mirrorlist.fedora-arm.wantstofly.org/?repo=fedora-%s&arch=armv5tel" % fver)
+if olpc_arm is not None:
+    repos["olpc_arm"] = ("baseurl", "http://xs-dev.laptop.org/~dsd/repos/f12-arm-olpc")
 
 # generate repo lines including excludes
 excludepkgs = list(excludepkgs)
