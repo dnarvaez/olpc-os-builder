@@ -10,3 +10,5 @@ echo "%__dbi_cdb create private nommap" > /etc/rpm/macros.rpmdb
 # what's more, olpc.fth really shouldnt specify a root device
 sed -i -e 's:root=mtd0:root=/dev/mtdblock0:g' /boot/olpc.fth
 
+# do not show the Sugar default ad-hoc networks on the XO-1
+gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type bool --set /desktop/sugar/network/adhoc false
