@@ -84,7 +84,7 @@ class _UpdateHTMLParser(HTMLParser):
             self.last_id = data.strip()
         if self.in_activity_version > 0:
             try:
-                self.last_version = long(data.strip())
+                self.last_version = data.strip()
             except:
                 if _DEBUG_PARSER:
                     print "BAD VERSION NUMBER:", self.last_id, data
@@ -129,7 +129,8 @@ def only_best_update(version_list):
     `parse_html` and return the "best" one."""
     bestv, bestu = None, None
     for ver, url in version_list:
-        if bestv is None or ver > bestv:
+        #FIXME Use the new comparison meachnism #10454 
+        if bestv is None or ver != bestv:
             bestv, bestu = ver, url
     return bestv, bestu
 
@@ -201,7 +202,7 @@ if install_activities:
 
         for name, info in results.items():
             (version, url) = only_best_update(info)
-            print >>sys.stderr, "Examining", name, "v%d" % version
+            print >>sys.stderr, "Examining", name, "v%s" % version
             fd = urllib2.urlopen(url)
             headers = fd.info()
             if not 'Content-length' in headers:
