@@ -1,0 +1,6 @@
+The Perú team has prepared a 10.1.2-based image, using these files.
+
+I've included a listing of the local rpm repos they use.
+
+An analysis of the translations in sugar.mo and sugar-toolkit.mo
+can be found at http://dev.laptop.org/ticket/10590
