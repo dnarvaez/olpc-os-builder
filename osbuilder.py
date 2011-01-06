@@ -131,10 +131,16 @@ class Stage(object):
                            % (self.osb.moddir, mod, self.name))
             partlist.extend(matches)
 
-        # sort them
+        # filter and sort them
         parts = {}
+        skipprefixes = re.compile('(#|\.)')
+        skipsuffixes = re.compile('(\.rpmsave|\.rpmorig|\.rpmnew|swp|~|#)$')
         for part in partlist:
             bname = os.path.basename(part)
+            if skipprefixes.match(bname):
+                continue
+            if skipsuffixes.search(bname):
+                continue
             mod = os.path.basename(os.path.dirname(part))
             parts[bname + "//" + mod] = os.path.join(mod, bname)
         items = parts.keys()
