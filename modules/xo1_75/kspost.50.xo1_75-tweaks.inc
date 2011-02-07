@@ -9,14 +9,13 @@ cat > /etc/X11/xorg.conf <<EOF
 Section "Device"
 	Identifier	"Configured Video Device" 
 	Option		"UseFBDev"		"true"
-	Option		"ShadowFB"		"false"
+	Option		"ShadowFB"		"true"
 	Option		"fbdev"			"/dev/fb0"
 	Driver		"fbdev"
 EndSection
 
 Section "Module"
 	Disable "glx"
-	Disable "shadow"
 EndSection
 
 Section "Extensions"
@@ -28,3 +27,10 @@ Section "ServerLayout"
 	Option "Damage" "False"
 EndSection
 EOF
+
+cat >> /etc/rc.local <<EOF
+date 121517002010
+agetty /dev/ttyS2 115200 &
+EOF
+
+sed -i -e 's/PROMPT=yes/PROMPT=no/' /etc/sysconfig/init
