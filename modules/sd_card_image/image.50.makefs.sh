@@ -90,6 +90,16 @@ EOF
 		ln -s . $BOOT/boot
 	fi
 
+	# Ugly hack -- set up olpc.fth and zImage now.
+	cat > $BOOT/boot/olpc.fth <<EOF
+\ olpc.fth
+d4282c08 l@ 80.0000 invert and d4282c08 l!
+load last:\zImage
+go
+EOF
+
+	cp /home/cjb/latestzImage $BOOT/boot/zImage
+ 
 	umount $ROOT
 	umount $BOOT
 	losetup -d /dev/loop6 || :

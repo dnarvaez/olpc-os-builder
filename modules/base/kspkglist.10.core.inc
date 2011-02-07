@@ -21,6 +21,7 @@ olpc-update
 #olpc-powerd
 #olpc-powerd-dbus
 # bootfw
+libertas-sd8686-firmware
 
 # graphical base environment
 #olpc-kbdshim
