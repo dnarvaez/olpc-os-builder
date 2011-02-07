@@ -15,7 +15,7 @@ sed -i -e '/\/dev\/shm/ s/ defaults / defaults,size=50m /' /etc/fstab
 # we're booting an unversioned root, dracut will see this and attempt to
 # remount the (e.g.) jffs2 partition as (e.g.) ext3.
 # remove the line so that dracut isn't able to be so clever
-sed -i -e '/^\/dev\/root[[:space:]]/d' /etc/fstab
+# sed -i -e '/^\/dev\/root[[:space:]]/d' /etc/fstab
 
 mkdir /ofw
 mkdir /bootpart
