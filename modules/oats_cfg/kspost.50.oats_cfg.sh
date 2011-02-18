@@ -5,6 +5,7 @@
 
 server=$(read_config oats_cfg server)
 ignore_xs=$(read_config oats_cfg ignore_xs)
+stream=$(read_config oats_cfg stream)
 
 if [ "$ignore_xs" = "1" ]; then
 	echo "touch /etc/oats-ignore-xs"
@@ -12,5 +13,9 @@ fi
 
 if [ -n "$server" ]; then
 	echo "echo '$server' > /etc/oats-server"
+fi
+
+if [ -n "$stream" ]; then
+	echo "echo '$stream' > /etc/update-stream"
 fi
 
