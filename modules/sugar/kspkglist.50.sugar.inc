@@ -4,25 +4,25 @@ sugar
 # additional sugar packages
 libxml2-python
 hulahop
-pyabiword
+# pyabiword
 gnome-python2-evince
-udisks
-espeak
+# udisks
+# espeak
 etoys
 evince-djvu
 gtksourceview2
 gvfs
 libffi
 numpy
-csound
-csound-python
+# csound
+# csound-python
 pygame
 python-alsaaudio
 squeak-vm
 # Browse
 gnome-python2-gnome
-gnash-plugin
-totem-mozplugin
+# gnash-plugin
+# totem-mozplugin
 # Terminal
 vte
 # dependencies for Epub support in Read
@@ -37,7 +37,7 @@ SDL_Pango
 gstreamer-plugins-espeak
 
 # using a non-upstream updater temporarily (#10641)
-sugar-update-control
+#sugar-update-control
 
 # explicitly specify dependencies on GNOME's implementation of certain
 # components, otherwise the KDE ones will be brought in by default

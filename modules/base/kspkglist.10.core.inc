@@ -1,17 +1,20 @@
 # basic system packages
 chkconfig
-kernel.i586
+# should move to platform-specific modules?
+# kernel.i586
 tar
 wget
 diffutils
-rfkill
+# should move to platform-specific modules?
+# rfkill
 passwd
 bzip2
 file
 openssh-server
 openssh-clients
 sudo
-prelink
+# should move to platform-specific modules?
+# prelink
 vim-minimal
 rpm
 yum
@@ -23,16 +26,19 @@ strace
 
 # OLPC technologies and customization packages
 olpc-utils
-olpc-netutils
-olpc-bootanim
-PolicyKit-olpc
-ds-backup-client
-olpc-powerd
-olpc-powerd-dbus
-bootfw
+#olpc-netutils
+#olpc-bootanim
+olpc-update
+# FIXME: revive PolicyKit-olpc for F14
+#PolicyKit-olpc
+#ds-backup-client
+#olpc-powerd
+#olpc-powerd-dbus
+# bootfw
+libertas-sd8686-firmware
 
 # graphical base environment
-olpc-kbdshim
+#olpc-kbdshim
 xorg-x11-server-Xorg
 xorg-x11-drv-fbdev
 xorg-x11-drv-evdev
