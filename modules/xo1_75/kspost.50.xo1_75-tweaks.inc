@@ -1,6 +1,4 @@
 
-sed -i -e 's/ttyS0/ttyS2/' /etc/init/ttyS0.conf
-
 sed -i -e 's/PROMPT=yes/PROMPT=no/' /etc/sysconfig/init
 
 mknod /dev/console c 5 1
