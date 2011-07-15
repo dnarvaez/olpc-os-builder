@@ -21,7 +21,7 @@ cat > $fsmount/boot/olpc.fth <<EOF
   false
 ;
 
-" root=/dev/mmcblk0p2 console=ttyS2,115200 console=tty0 loglevel=9 rootwait debug " to boot-file
+" root=/dev/mmcblk0p2 console=ttyS2,115200 console=tty0 loglevel=9 rootwait debug" to boot-file
 runin? if boot-file "  runin" $cat2 to boot-file then
 boot last:\vmlinuz
 
