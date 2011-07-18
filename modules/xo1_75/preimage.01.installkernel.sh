@@ -10,7 +10,7 @@ rpm --root "$fsmount" --ignorearch -ivh $oob_config_dir/kernel-2.6.39_xo1.75-201
 
 # FIXME olpc.fth usually comes in the bootfw rpm
 # This olpc.fth compensates for lack of /ofw to trigger runin
-cat > $fsmount/boot/olpc.fth <<EOF
+cat > $fsmount/boot/olpc.fth <<"EOF"
 \ olpc.fth
 : runin? " TS" find-tag if
         ?-null " RUNIN" nocase-$= if
