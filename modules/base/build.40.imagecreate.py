@@ -33,6 +33,8 @@ def main():
         creator = imgcreate.LoopImageCreator(ks, 'imgcreatefs', name)
 
     try:
+        creator.tmpdir =  os.path.join(ooblib.intermediatesdir, 'imgcreate-tmp')
+        os.mkdir(creator.tmpdir)
         creator.mount(cachedir=cache_dir)
         creator.install()
         creator.configure()
