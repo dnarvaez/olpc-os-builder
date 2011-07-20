@@ -1,13 +1,7 @@
 olpc-runin-tests
 
-# FIXME - need setarch armv7l to work
-#kernel.armv7l
-
-## WORKAROUND: remove when we can install kernel.armv7l
-## normally
-linux-firmware
-dracut
-dracut-modules-olpc
-libertas-sd8686-firmware
-fileutils
-module-init-tools
+# if your build claims that it can't find it
+# you may need to tweak your build host with
+#
+#   echo armv7l-fedora-linux-gnu > /etc/rpm/platform
+kernel.armv7l
