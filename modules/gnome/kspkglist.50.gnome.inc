@@ -45,7 +45,7 @@ audacity
 # more desktop stuff
 file-roller
 gedit
-gnash-plugin
+#gnash-plugin
 NetworkManager-gnome
 xdg-user-dirs-gtk
 

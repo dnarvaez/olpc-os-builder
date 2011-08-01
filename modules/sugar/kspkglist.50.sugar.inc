@@ -26,7 +26,7 @@ gnome-python2-gnome
 # Terminal
 vte
 # dependencies for Epub support in Read
-pywebkitgtk
+# pywebkitgtk
 python-BeautifulSoup
 python-lxml
 olpc-library

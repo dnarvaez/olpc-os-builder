@@ -75,10 +75,11 @@ if fedora is not None:
             repos["rawhide"] = ("mirrorlist", "http://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=i386")
 
 if arm is not None:
-#   repos["arm"] = ("baseurl", "http://arm.koji.fedoraproject.org/repos/dist-f13-build/latest/armv5tel")
-    repos["arm"] = ("baseurl", "http://arm.koji.fedoraproject.org/mash/beta/f13-arm-2011-05-10/f13-arm/arm/os/")
+    repos["arm"] = ("baseurl", "http://arm.koji.fedoraproject.org/repos/dist-f14-build/latest/arm/")
+    repos["arm_pyrebuild"] = ("baseurl", "http://arm.koji.fedoraproject.org/repos/dist-f14-py27-rebuild/latest/arm/")
 if olpc_arm is not None:
-    repos["olpc_arm"] = ("baseurl", "http://xs-dev.laptop.org/~dsd/repos/f13-arm-olpc")
+    repos["olpc_f13_arm"] = ("baseurl", "http://xs-dev.laptop.org/~dsd/repos/f13-arm-olpc")
+    repos["olpc_f14_arm"] = ("baseurl", "http://xs-dev.laptop.org/~dsd/repos/f14-arm")
 
 # generate repo lines including excludes
 excludepkgs = list(excludepkgs)
