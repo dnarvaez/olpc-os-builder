@@ -44,3 +44,5 @@ sugar-update-control
 PolicyKit-gnome
 notification-daemon
 
+# accidently missed from 11.2.0 sugar RPM deps (#11106)
+upower
