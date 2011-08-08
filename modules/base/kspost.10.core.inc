@@ -5,7 +5,6 @@ cat >> /etc/fstab <<EOF
 /tmp            /tmp            tmpfs         rw,size=50m 0 0
 vartmp          /var/tmp        tmpfs         rw,size=50m 0 0
 varlog          /var/log        tmpfs         rw,size=20m 0 0
-none            /ofw            promfs		  defaults    0 0
 EOF
 sed -i -e '/\/dev\/shm/ s/ defaults / defaults,size=50m /' /etc/fstab
 
