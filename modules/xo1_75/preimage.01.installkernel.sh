@@ -6,20 +6,9 @@
 . $OOB__shlib
 
 # FIXME olpc.fth usually comes in the bootfw rpm
-# This olpc.fth compensates for lack of /ofw to trigger runin
 cat > $fsmount/boot/olpc.fth <<"EOF"
 \ olpc.fth
-: runin? " TS" find-tag if
-        ?-null " RUNIN" nocase-$= if
-                true
-                exit
-        then
-  then
-  false
-;
-
 " root=/dev/mmcblk0p2 console=ttyS2,115200 console=tty0 loglevel=9 rootwait debug" to boot-file
-runin? if boot-file "  runin" $cat2 to boot-file then
 boot last:\vmlinuz
 
 EOF
