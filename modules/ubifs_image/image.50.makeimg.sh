@@ -7,6 +7,9 @@
 buildnr=$(read_buildnr)
 versioned_fs=$(read_config base versioned_fs)
 
+compr_type=$(read_config ubifs_image compression_type)
+reserved=$(read_config ubifs_image reserved)
+
 BOOT=$intermediatesdir/jffs2-boot
 ROOT=$intermediatesdir/ubifs-root
 boot_tmp_img=$intermediatesdir/boot_tmp.img
@@ -66,8 +69,10 @@ echo "Making JFFS2 boot image..."
 mkfs.jffs2 -x rtime -n -e128KiB -r $BOOT -o $boot_tmp_img
 sumtool -n -p -e 128KiB -i $boot_tmp_img -o $boot_img
 
+[ -n "$compr_type" ] && compr_type="-x $compr_type"
+
 echo "Making UBIFS root image..."
-mkfs.ubifs -m 2KiB -e 124KiB -c 7849 -d $ROOT -o $root_tmp_img
+mkfs.ubifs -m 2KiB -e 124KiB -c 7849 $compr_type -R $reserved -d $ROOT -o $root_tmp_img
 
 echo "Ubinizing root image..."
 cat > $ubinize_cfg <<EOF
@@ -107,3 +112,7 @@ echo "mark-complete: 0" >> $output_script_path
 echo "Create final NAND image..."
 cat $boot_img $root_img > $output_img_path
 
+pushd $outputdir >/dev/null
+md5sum $output_img > $output_img_path.md5
+md5sum $output_script > $output_script_path.md5
+popd >/dev/null
