@@ -4,25 +4,25 @@ sugar
 # additional sugar packages
 libxml2-python
 hulahop
-# pyabiword
+pyabiword
 gnome-python2-evince
-# udisks
-# espeak
+udisks
+espeak
 etoys
 evince-djvu
 gtksourceview2
 gvfs
 libffi
 numpy
-# csound
-# csound-python
-pygame
+#csound
+#csound-python
+# pygame
 python-alsaaudio
 squeak-vm
 # Browse
 gnome-python2-gnome
-# gnash-plugin
-# totem-mozplugin
+gnash-plugin
+totem-mozplugin
 # Terminal
 vte
 # dependencies for Epub support in Read
@@ -32,6 +32,8 @@ python-lxml
 olpc-library
 # for Tuxmath activity
 SDL_Pango
+# for Physics
+pybox2d
 
 # for text-to-speech in Read
 gstreamer-plugins-espeak

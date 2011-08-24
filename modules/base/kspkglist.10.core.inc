@@ -5,8 +5,7 @@ chkconfig
 tar
 wget
 diffutils
-# should move to platform-specific modules?
-# rfkill
+rfkill
 passwd
 bzip2
 file
@@ -26,19 +25,18 @@ strace
 
 # OLPC technologies and customization packages
 olpc-utils
-#olpc-netutils
+olpc-netutils
 #olpc-bootanim
 olpc-update
-# FIXME: revive PolicyKit-olpc for F14
-#PolicyKit-olpc
+PolicyKit-olpc
 #ds-backup-client
-#olpc-powerd
-#olpc-powerd-dbus
-# bootfw
+olpc-powerd
+olpc-powerd-dbus
+bootfw
 libertas-sd8686-firmware
 
 # graphical base environment
-#olpc-kbdshim
+olpc-kbdshim
 xorg-x11-server-Xorg
 xorg-x11-drv-fbdev
 xorg-x11-drv-evdev
@@ -47,10 +45,6 @@ xorg-x11-drv-mouse
 xorg-x11-utils
 xorg-x11-xinit
 xorg-x11-xauth
-
-# cron needs sendmail, which is provided by exim by default
-# and exim needs perl... so let's use ssmtp, which is much lighter
-ssmtp
 
 # strip fedora trademarks
 generic-logos

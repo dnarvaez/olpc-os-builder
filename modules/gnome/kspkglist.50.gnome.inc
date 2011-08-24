@@ -16,18 +16,17 @@ PolicyKit-gnome
 notification-daemon
 
 # battery applet
-# batti
+batti
 
 # sound mixer/volume control (#10706)
 gmixer
 
 # internet
-xulrunner
 firefox
 # empathy
 
 # office
-# abiword
+abiword
 gnumeric
 evince
 
@@ -37,15 +36,14 @@ eog
 gimp
 
 # audio & video
-audacity
-#totem
-# totem-gstreamer
-# totem-mozplugin
+# audacity
+totem
+totem-gstreamer
+totem-mozplugin
 
 # more desktop stuff
 file-roller
 gedit
-#gnash-plugin
+gnash-plugin
 NetworkManager-gnome
 xdg-user-dirs-gtk
-
