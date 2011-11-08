@@ -6,9 +6,5 @@ olpc-runin-tests
 # currently not pulled in by ARM for some reason
 ntfs-3g
 
-# from Q4B10 onwards
-olpc-firmware
-
 # 2-bpp version of Adwaita cursors
 cursors-adwaita2b
-
