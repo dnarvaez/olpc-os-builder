@@ -8,3 +8,7 @@ ntfs-3g
 
 # from Q4B10 onwards
 olpc-firmware
+
+# 2-bpp version of Adwaita cursors
+cursors-adwaita2b
+
