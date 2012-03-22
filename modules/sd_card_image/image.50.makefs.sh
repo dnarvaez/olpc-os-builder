@@ -51,7 +51,10 @@ make_image()
 8192,131072,83,*
 139264,,,
 EOF
-	local img_sectors=$(sfdisk -uS -l $img | grep img2 | awk '{print $4}')
+	# sfdisk output truncates paths that are too long
+	pushd $intermediatesdir
+	local img_sectors=$(sfdisk -uS -l $(basename $img) | grep img2 | awk '{print $4}')
+	popd
 	echo "(1 losetup error is normal here)"
 	losetup -d /dev/loop6 || :
 	losetup -o $((8192 * $BLOCK_SIZE)) --sizelimit $((131072 * $BLOCK_SIZE)) /dev/loop6 $img
