@@ -18,7 +18,7 @@
 #
 
 # canonical source of version number
-VERSION="4.0.0"
+VERSION="4.1.0"
 
 # "make install" modifies this in the installed copy
 INSTALLED=0
