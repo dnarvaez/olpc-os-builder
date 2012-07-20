@@ -7,6 +7,7 @@ libdir=$OOB__libdir
 bindir=$OOB__bindir
 builddir=$OOB__builddir
 cachedir=$OOB__cachedir
+cacheonly=$OOB__cacheonly  # use with is_true $var
 intermediatesdir=$OOB__intermediatesdir
 outputdir=$OOB__outputdir
 statedir=$OOB__statedir
@@ -65,3 +66,10 @@ install_sugar_bundle() {
 	ln_or_cp "$1" "$intermediatesdir/shared/sugar-bundles"
 }
 
+is_true()
+{
+    case $1 in
+    1|[yYtT]*)  return 0 ;;
+    *)          return 1 ;;
+    esac
+}
