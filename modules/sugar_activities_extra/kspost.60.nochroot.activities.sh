@@ -11,8 +11,9 @@ for line in $(env); do
 	[[ "${line:0:32}" == "CFG_sugar_activities_extra__url_" ]] || continue
 	aurl=${line#*=}
 	echo "Downloading from $aurl ..." >&2
-	wget --no-verbose --inet4-only -P $cache -N "$aurl"
-
+	if ! is_true ${OOB__cacheonly}; then
+	    wget --no-verbose --inet4-only -P $cache -N "$aurl"
+	fi
 	install_sugar_bundle $cache/$(basename "$aurl")
 done
 
