@@ -7,6 +7,7 @@ from time import gmtime, strftime
 
 import imgcreate
 import ooblib
+import inspect # FIXME: remove
 
 cache_dir = os.path.join(ooblib.cachedir, 'imgcreate')
 
@@ -23,16 +24,30 @@ def main():
     make_iso = ooblib.read_config_bool('base', 'make_iso')
     if make_iso:
         print "Building ISO image..."
-        creator = imgcreate.LiveImageCreator(ks, name, name,
-                                             tmpdir=ooblib.builddir)
+        # FIXME: remove conditional once cacheonly support is
+        #        expected upstream (F18?)
+        if 'cacheonly' in inspect.getargspec(imgcreate.LiveImageCreator.__init__).args:
+            creator = imgcreate.LiveImageCreator(ks, name, name,
+                                                 tmpdir=ooblib.builddir,
+                                                 cacheonly=ooblib.cacheonly)
+        else:            
+            creator = imgcreate.LiveImageCreator(ks, name, name,
+                                                 tmpdir=ooblib.builddir)
         compress = ooblib.read_config_bool('base', 'compress_iso')
         if compress is None:
             compress = False
         creator.skip_compression = not compress
     else:
         print "Building directly into FS image..."
-        creator = imgcreate.LoopImageCreator(ks, 'imgcreatefs', name,
-                                             tmpdir=ooblib.builddir)
+        # FIXME: remove conditional once cacheonly support is
+        #        expected upstream (F18?)
+        if 'cacheonly' in inspect.getargspec(imgcreate.LoopImageCreator.__init__).args:
+            creator = imgcreate.LoopImageCreator(ks, 'imgcreatefs', name,
+                                                 tmpdir=ooblib.builddir,
+                                                 cacheonly=ooblib.cacheonly)
+        else:
+            creator = imgcreate.LoopImageCreator(ks, 'imgcreatefs', name,
+                                                 tmpdir=ooblib.builddir)
 
     try:
         creator.mount(cachedir=cache_dir)
