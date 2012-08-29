@@ -1,0 +1,30 @@
+For development purposes only. Allows you to quickly inject into the build
+
+ - kernel zimage
+ - kernel rpm
+ - olpc.fth
+ - runin.tar.gz
+ - arbitrary files
+
+Example configuration
+[bringup]
+# place zImage / kernel rpm / olpc.fth / runin.tar
+# in the samedirectory where the oob configuration INI file resides
+
+# the zImage file will be renamed vmlinuz, replacing the
+# usual vmlinuz symlink if present
+kernel_zimage=%(oob_config_path)s/zImage
+
+# don't use kernel_zimage and kernel_rpm at the same time!
+# kernel_rpm=%(oob_config_path)s/linux-3.4.5-xyz.armv9hl.rpm
+
+# copied verbatim
+olpc_fth=%(oob_config_path)s/olpc.fth
+
+# runin.tar.gz gets copied as-is to boot
+# will overwrite any runin installed from rpm
+runin_tarball=%(oob_config_path)s/olpc.fth
+
+# Overwrite arbitrary files from the overlay
+# directory -- copies mode, owner will be root
+overlay=%(oob_config_path)s/overlay_root_dir/
