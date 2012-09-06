@@ -15,20 +15,28 @@ kernel_zimage=$(read_config bringup kernel_zimage)
 kernel_rpm=$(read_config bringup kernel_rpm)
 olpc_fth=$(read_config bringup olpc_fth)
 runin_tarball=$(read_config bringup runin_tarball)
+fw8787=$(read_config bringup fw8787)
 overlay=$(read_config bringup overlay)
 
 if [ -n "${kernel_rpm}" ]; then
-    #echo "Installing kernel rpm manually..."
+    echo "Installing kernel rpm..."
     rpm --root "$fsmount" --ignorearch -ivh "${kernel_rpm}"
 fi
 
 if [ -n "${kernel_zimage}" ]; then
+    echo "Installing zImage as /boot/vmlinuz"
     rm "$fsmount"/boot/vmlinuz
     cp "${kernel_zimage}" "$fsmount"/boot/vmlinuz
 fi
 
 if [ -n "${olpc_fth}" ]; then
+    echo "Installing olpc.fth"
     cp "${olpc_fth}" "$fsmount"/boot/olpc.fth
+fi
+
+if [ -n "${fw8787}" ]; then
+    echo "Installing fw8787..."
+    cp "${fw8787}" "$fsmount"/lib/firmware/mrvl/sd8787_uapsta.bin 
 fi
 
 if [ -n "${runin_tarball}" ]; then
@@ -43,6 +51,8 @@ fi
 #fi
 
 # temporary
-touch "$fsmount"/runin/no-camera
+# touch "$fsmount"/runin/no-camera
 touch "$fsmount"/runin/no-suspend
+# for OFW Q7A12 -
+rm    "$fsmount"/boot/bootfw.zip
 
