@@ -52,4 +52,6 @@ fi
 
 # temporary
 touch "$fsmount"/runin/no-suspend
+# for OFW Q7A12 Q7A13 -
+rm    "$fsmount"/boot/bootfw.zip
 
