@@ -51,8 +51,5 @@ fi
 #fi
 
 # temporary
-# touch "$fsmount"/runin/no-camera
 touch "$fsmount"/runin/no-suspend
-# for OFW Q7A12 -
-rm    "$fsmount"/boot/bootfw.zip
 
