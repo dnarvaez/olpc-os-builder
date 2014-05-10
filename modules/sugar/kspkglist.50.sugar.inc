@@ -27,7 +27,6 @@ csound-python
 pygame
 python-alsaaudio
 squeak-vm
-python-cjson
 libabiword
 
 # Browse
