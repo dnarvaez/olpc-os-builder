@@ -5,11 +5,13 @@ sugar-toolkit
 sugar-toolkit-gtk3
 
 # sugar control panels
+sugar-cp-backup
 sugar-cp-datetime
 sugar-cp-frame
 sugar-cp-language
 sugar-cp-modemconfiguration
 sugar-cp-network
+sugar-cp-webservices
 sugar-cp-power
 
 # additional sugar packages
